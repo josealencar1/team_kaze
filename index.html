@@ -1089,6 +1089,63 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
             </div>
         </div>
     </section>
+
+    <!-- ========================================== -->
+<!-- 1. COLE ESSE BOTÃO ONDE QUISER NO SEU SITE -->
+<!-- ========================================== -->
+<button onclick="openClipsModal()" class="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg font-bold text-lg hover-lift flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(8,145,178,0.4)]">
+    <i data-lucide="video" class="w-5 h-5"></i>
+    ENVIE SEUS CLIPES
+</button>
+
+
+<!-- ========================================== -->
+<!-- 2. COLE ESSE HTML NO FINAL DO SITE (ANTES DO <script>) -->
+<!-- ========================================== -->
+<!-- Modal de Clipes -->
+<div id="clips-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity opacity-0">
+    <div class="glassmorphism p-8 rounded-2xl w-full max-w-lg mx-4 relative transform scale-95 transition-transform duration-300 border border-gray-700/50 shadow-2xl">
+        
+        <!-- Botão de Fechar -->
+        <button onclick="closeClipsModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 flex items-center justify-center">
+                <i data-lucide="crosshair" class="w-5 h-5 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold">ENVIE SEUS <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">CLIPES</span></h3>
+        </div>
+        
+        <p class="text-gray-400 mb-6 text-sm leading-relaxed">Mostre suas mecânicas! Preencha o formulário abaixo e nossa equipe de recrutamento vai avaliar suas melhores jogadas.</p>
+
+        <form id="clips-form" class="space-y-4">
+            <div>
+                <label class="block text-gray-400 mb-2 text-sm font-medium">Seu Nick no Jogo</label>
+                <input type="text" name="nick_jogo" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="Ex: Kaze | Player">
+            </div>
+            <div>
+                <label class="block text-gray-400 mb-2 text-sm font-medium">Seu Email para Contato</label>
+                <input type="email" name="email_contato" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="voce@exemplo.com">
+            </div>
+            <div>
+                <label class="block text-gray-400 mb-2 text-sm font-medium">Link do Clipe (YouTube, Medal, Twitch...)</label>
+                <input type="url" name="link_clipe" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="https://...">
+            </div>
+            <div>
+                <label class="block text-gray-400 mb-2 text-sm font-medium">Patente Atual & Modalidade (Opcional)</label>
+                <textarea name="descricao_clipe" rows="2" class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="Ex: GC2 - Especialista em Ground Pinch..."></textarea>
+            </div>
+            <button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg font-bold text-white hover-lift transition-all mt-4 tracking-wider">
+                ENVIAR PARA AVALIAÇÃO
+            </button>
+        </form>
+    </div>
+</div>
+
+
+
     
     <!-- Footer -->
     <footer class="glassmorphism border-t border-gray-800 py-12">
@@ -1133,8 +1190,120 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
             </div>
         </div>
     </footer>
+
+
     
     <!-- JavaScript -->
+
+    <!-- ========================================== -->
+<!-- 3. COLE ESSE CÓDIGO DENTRO DA SUA TAG <script> (Lá no final do site) -->
+<!-- ========================================== -->
+<script>
+    // Funções para abrir e fechar a nova aba (Modal) com animação suave
+    function openClipsModal() {
+        const modal = document.getElementById('clips-modal');
+        modal.classList.remove('hidden');
+        // Pequeno delay para a animação CSS acontecer
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeClipsModal() {
+        const modal = document.getElementById('clips-modal');
+        modal.classList.add('opacity-0');
+        modal.querySelector('div').classList.remove('scale-100');
+        modal.querySelector('div').classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300); // Tempo igual ao da transição do Tailwind (duration-300)
+    }
+
+    // FECHAR AO CLICAR FORA DA JANELA
+    document.getElementById('clips-modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeClipsModal();
+        }
+    });
+
+    // Lógica de Envio do Formulário de Clipes (EmailJS)
+    document.addEventListener('DOMContentLoaded', function() {
+        const clipsForm = document.getElementById('clips-form');
+        
+        if (clipsForm) {
+            clipsForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitBtn = clipsForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                // Usando as suas chaves do EmailJS
+                const SERVICE_ID = 'service_xvpn2xn';
+                const TEMPLATE_ID = 'template_u1fi9y9';
+                const PUBLIC_KEY = 'eQLnK4Eqhq8_wEmJO';
+                
+                submitBtn.textContent = 'ENVIANDO CLIPE...';
+                submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+                
+                const formData = new FormData(clipsForm);
+                
+                // Mapeando os dados para os campos do Template que você já criou
+                const mensagemFormatada = 
+                    "Link do Clipe: " + formData.get('link_clipe') + 
+                    "\n\nPatente/Detalhes: " + (formData.get('descricao_clipe') || "Não informado.");
+
+                const data = {
+                    service_id: SERVICE_ID,
+                    template_id: TEMPLATE_ID,
+                    user_id: PUBLIC_KEY,
+                    template_params: {
+                        nome: formData.get('nick_jogo'),
+                        email: formData.get('email_contato'),
+                        assunto: "NOVO CLIPE PARA AVALIAÇÃO - " + formData.get('nick_jogo'),
+                        mensagem: mensagemFormatada
+                    }
+                };
+                
+                try {
+                    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    if (response.ok) {
+                        submitBtn.textContent = 'CLIPE ENVIADO COM SUCESSO!';
+                        submitBtn.classList.remove('from-cyan-600', 'to-blue-600', 'opacity-75', 'cursor-not-allowed');
+                        submitBtn.classList.add('from-green-600', 'to-green-500');
+                        clipsForm.reset();
+                        
+                        // Fecha o modal automaticamente após 2.5 segundos
+                        setTimeout(closeClipsModal, 2500);
+                    } else {
+                        submitBtn.textContent = 'ERRO AO ENVIAR';
+                        submitBtn.classList.remove('from-cyan-600', 'to-blue-600', 'opacity-75', 'cursor-not-allowed');
+                        submitBtn.classList.add('from-red-600', 'to-red-500');
+                    }
+                } catch (error) {
+                    submitBtn.textContent = 'ERRO DE CONEXÃO';
+                    submitBtn.classList.remove('from-cyan-600', 'to-blue-600', 'opacity-75', 'cursor-not-allowed');
+                    submitBtn.classList.add('from-red-600', 'to-red-500');
+                }
+                
+                // Reseta o botão visualmente após um tempo, caso dê erro
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.classList.remove('from-green-600', 'to-green-500', 'from-red-600', 'to-red-500');
+                    submitBtn.classList.add('from-cyan-600', 'to-blue-600');
+                }, 3000);
+            });
+        }
+    });
+</script>
     <script>
         // Initialize AOS (Animate On Scroll)
         document.addEventListener('DOMContentLoaded', function() {
