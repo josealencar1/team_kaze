@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Bot | Team Kaze</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --primary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --dark-bg: #0a0a0a;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--dark-bg);
+            color: #f8fafc;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.15), transparent 25%);
+        }
+        
+        .glassmorphism {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 4px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6">
+
+    <!-- Overlay de Senha -->
+    <div id="password-overlay" class="fixed inset-0 z-[999] bg-black flex items-center justify-center p-4">
+        <div class="glassmorphism p-8 rounded-2xl w-full max-w-md text-center border border-purple-500/30 shadow-[0_0_30px_rgba(139,92,246,0.15)] relative overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-purple-600/20 blur-3xl rounded-full pointer-events-none"></div>
+            <i data-lucide="lock" class="w-12 h-12 text-purple-500 mx-auto mb-4"></i>
+            <h2 class="text-3xl font-bold mb-2 text-white">ACESSO RESTRITO</h2>
+            <p class="text-gray-400 text-sm mb-6">Insira a senha de administrador para acessar o painel do bot.</p>
+            
+            <form id="password-form" class="space-y-4 relative z-10">
+                <input type="password" id="admin-password" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 text-center focus:outline-none focus:border-purple-600 transition-colors text-white tracking-widest" placeholder="••••••••">
+                <p id="password-error" class="text-red-500 text-sm font-bold hidden">Senha incorreta!</p>
+                <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-white hover:scale-[1.02] transition-transform shadow-[0_0_15px_rgba(139,92,246,0.3)]">
+                    DESBLOQUEAR PAINEL
+                </button>
+            </form>
+            <a href="index.html" class="block mt-6 text-sm text-gray-500 hover:text-white transition-colors">Voltar para a página inicial</a>
+        </div>
+    </div>
+
+    <!-- Header / Voltar para o site -->
+    <div class="w-full max-w-4xl mx-auto mb-8 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                <i data-lucide="bot" class="w-6 h-6 text-white"></i>
+            </div>
+            <span class="text-2xl font-bold gradient-text">KAZE BOT PANEL</span>
+        </div>
+        <a href="index.html" class="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            Voltar ao Site
+        </a>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="w-full max-w-4xl mx-auto grid md:grid-cols-5 gap-8">
+        
+        <!-- Formulário de Agendamento -->
+        <div class="md:col-span-3 glassmorphism p-8 rounded-2xl relative overflow-hidden">
+            <!-- Efeito de brilho no fundo -->
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-purple-600/20 blur-3xl rounded-full pointer-events-none"></div>
+
+            <h2 class="text-2xl font-bold mb-2">Agendar Nova Partida</h2>
+            <p class="text-gray-400 text-sm mb-6">Preencha os dados. O bot enviará um aviso no Discord e salvará na sua Planilha Google.</p>
+
+            <form id="webhook-form" class="space-y-5 relative z-10">
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-400 mb-1 text-sm">Nosso Time</label>
+                        <input type="text" value="Team Kaze" readonly class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-purple-400 font-bold focus:outline-none cursor-not-allowed">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1 text-sm">Time Adversário</label>
+                        <input type="text" id="adversario" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-600 transition-colors text-white" placeholder="Ex: NRG Esports">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-400 mb-1 text-sm">Data da Partida</label>
+                        <input type="date" id="data" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-600 transition-colors text-white [color-scheme:dark]">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1 text-sm">Horário (BRT)</label>
+                        <input type="time" id="horario" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-600 transition-colors text-white [color-scheme:dark]">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-1 text-sm">Tipo de Partida</label>
+                    <select id="tipo" class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-600 transition-colors text-white">
+                        <option value="Scrim (Treino)">Scrim (Treino)</option>
+                        <option value="Campeonato Oficial">Campeonato Oficial</option>
+                        <option value="Showmatch">Showmatch</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-1 text-sm">Avisar qual cargo?</label>
+                    <select id="cargo" class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-600 transition-colors text-white">
+                        <option value="@everyone">Todos (@everyone)</option>
+                        <option value="Apenas Line-Up Principal">Apenas Line-Up Principal</option>
+                        <option value="Tryhards em Teste">Tryhards em Teste</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="submit-btn" class="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-white hover:scale-[1.02] transition-transform flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(139,92,246,0.3)]">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                    DISPARAR AVISO E SALVAR
+                </button>
+            </form>
+        </div>
+
+        <!-- Instruções e Preview -->
+        <div class="md:col-span-2 space-y-6">
+            
+            <!-- Como funciona -->
+            <div class="glassmorphism p-6 rounded-2xl border border-purple-500/30">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="info" class="w-5 h-5 text-purple-400"></i>
+                    <h3 class="font-bold text-lg">Como funciona?</h3>
+                </div>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex items-start gap-2">
+                        <div class="w-5 h-5 rounded-full bg-purple-900/50 flex items-center justify-center text-purple-400 shrink-0 mt-0.5">1</div>
+                        <p>Você preenche os dados do duelo ao lado.</p>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <div class="w-5 h-5 rounded-full bg-purple-900/50 flex items-center justify-center text-purple-400 shrink-0 mt-0.5">2</div>
+                        <p>O site envia um aviso direto para o Discord e adiciona uma linha na sua Planilha do Google (via SheetDB).</p>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <div class="w-5 h-5 rounded-full bg-purple-900/50 flex items-center justify-center text-purple-400 shrink-0 mt-0.5">3</div>
+                        <p>Os visitantes do site verão a partida imediatamente! Para apagar, basta remover a linha da planilha.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Configuração do Webhook -->
+            <div class="glassmorphism p-6 rounded-2xl border border-gray-700/50">
+                <div class="flex items-center gap-3 mb-3">
+                    <i data-lucide="link" class="w-5 h-5 text-gray-400"></i>
+                    <h3 class="font-bold text-lg text-gray-200">URL do Webhook (Discord)</h3>
+                </div>
+                <p class="text-xs text-gray-500 mb-3">Cole a URL do Webhook gerada no seu canal do Discord.</p>
+                <input type="password" id="webhook-url" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-purple-600 text-gray-300" placeholder="https://discord.com/api/webhooks/...">
+            </div>
+
+            <!-- Informação da API da Planilha -->
+            <div class="glassmorphism p-6 rounded-2xl border border-emerald-500/30">
+                <div class="flex items-center gap-3 mb-3">
+                    <i data-lucide="database" class="w-5 h-5 text-emerald-400"></i>
+                    <h3 class="font-bold text-lg text-gray-200">Conexão Ativa (Planilha)</h3>
+                </div>
+                <p class="text-sm text-gray-400">O sistema está conectado ao seu Google Sheets através do SheetDB ID: <br><span class="text-emerald-400 font-mono mt-2 block text-xs">ou4kk7r7zkoiz</span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SCRIPT DA PÁGINA -->
+    <!-- ========================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializa os ícones do Lucide
+            lucide.createIcons();
+            
+            // Lógica da Tela de Bloqueio
+            const overlay = document.getElementById('password-overlay');
+            const pwdForm = document.getElementById('password-form');
+            const pwdError = document.getElementById('password-error');
+
+            if (pwdForm) {
+                pwdForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const inputVal = document.getElementById('admin-password').value;
+                    
+                    if (inputVal === 'KaZe$#@!') {
+                        // Senha Correta
+                        overlay.classList.add('hidden');
+                        pwdError.classList.add('hidden');
+                    } else {
+                        // Senha Incorreta
+                        pwdError.classList.remove('hidden');
+                        document.getElementById('admin-password').value = '';
+                    }
+                });
+            }
+
+            // Lógica de Envio do Agendamento (Discord + SheetDB)
+            document.getElementById('webhook-form').addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const webhookUrl = document.getElementById('webhook-url').value.trim();
+                const sheetDbUrl = "https://sheetdb.io/api/v1/ou4kk7r7zkoiz"; // Sua URL do SheetDB
+                const btn = document.getElementById('submit-btn');
+                
+                if (!webhookUrl) {
+                    alert("Por favor, cole a URL do Webhook do Discord no painel lateral primeiro!");
+                    document.getElementById('webhook-url').focus();
+                    return;
+                }
+
+                const adversario = document.getElementById('adversario').value;
+                const dataRaw = document.getElementById('data').value;
+                const horario = document.getElementById('horario').value;
+                const tipo = document.getElementById('tipo').value;
+                const cargo = document.getElementById('cargo').value;
+
+                // Formatar a data de YYYY-MM-DD para DD/MM/YYYY
+                const [ano, mes, dia] = dataRaw.split('-');
+                const dataFormatada = `${dia}/${mes}/${ano}`;
+
+                // Salvar o texto original do botão
+                const originalText = btn.innerHTML;
+                
+                // Mudar estado do botão para "Enviando"
+                btn.innerHTML = '<i data-lucide="loader" class="w-5 h-5 animate-spin"></i> ENVIANDO...';
+                btn.classList.add('opacity-70', 'cursor-not-allowed');
+                lucide.createIcons();
+
+                // 1. DADOS PARA O DISCORD (Isso não muda, continua indo limpinho pro chat do Discord)
+                const discordPayload = {
+                    content: `🔔 **Atenção ${cargo}**! Novo aviso de partida gerado pelo site!`,
+                    embeds: [{
+                        title: "🎮 NOVA PARTIDA AGENDADA",
+                        description: "Preparem-se! O Team Kaze entrará em campo. Confirme sua presença reagindo abaixo para receber as notificações.",
+                        color: 9133286, // Cor roxa
+                        fields: [
+                            { name: "⚔️ Confronto", value: `**Team Kaze** vs **${adversario}**`, inline: false },
+                            { name: "📅 Data e Hora", value: `${dataFormatada} às ${horario} (BRT)`, inline: true },
+                            { name: "🏆 Modalidade", value: tipo, inline: true }
+                        ],
+                        thumbnail: { url: "https://image2url.com/r2/default/images/1773288125769-97fa1340-566f-45ab-bc1f-33ce7573297d.png" },
+                        footer: { text: "Team Kaze Bot System • Reaja para receber o cargo" },
+                        timestamp: new Date().toISOString()
+                    }]
+                };
+
+                // 2. DADOS PARA A PLANILHA (SHEETDB) - AQUI ESTÃO AS CORREÇÕES MÁGICAS!
+                const sheetPayload = {
+                    data: [{
+                        "adversário": adversario,     // Agora vai bater EXATAMENTE com o cabeçalho da sua folha de cálculo ("adversário" com acento)
+                        "data": "'" + dataFormatada,  // A aspa simples impede o Google Sheets de transformar a data no número 46096
+                        "horario": "'" + horario,     // A aspa simples antes do horário impede o Google Sheets de transformar em 0,625
+                        "tipo": tipo
+                    }]
+                };
+
+                try {
+                    // DISPARO 1: Enviar para o Discord
+                    const discordResponse = await fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(discordPayload)
+                    });
+
+                    if (!discordResponse.ok) throw new Error('Erro ao enviar para o Discord');
+
+                    // DISPARO 2: Enviar para a Planilha do Google
+                    const sheetResponse = await fetch(sheetDbUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(sheetPayload)
+                    });
+
+                    if (!sheetResponse.ok) throw new Error('Erro ao salvar na Planilha');
+
+                    // Sucesso Absoluto
+                    btn.innerHTML = '<i data-lucide="check-circle" class="w-5 h-5"></i> ENVIADO E SALVO';
+                    btn.classList.replace('from-purple-600', 'from-green-600');
+                    btn.classList.replace('to-pink-600', 'to-green-500');
+                    btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                    
+                    // Limpar o formulário
+                    document.getElementById('webhook-form').reset();
+
+                } catch (error) {
+                    console.error("Erro na operação:", error);
+                    btn.innerHTML = '<i data-lucide="x-circle" class="w-5 h-5"></i> ERRO DE CONEXÃO';
+                    btn.classList.replace('from-purple-600', 'from-red-600');
+                    btn.classList.replace('to-pink-600', 'to-red-500');
+                    btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                }
+
+                lucide.createIcons();
+
+                // Restaurar o botão após 3 segundos
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.className = "w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-white hover:scale-[1.02] transition-transform flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(139,92,246,0.3)]";
+                    lucide.createIcons();
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
