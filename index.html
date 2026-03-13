@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons -->
+    <!-- Lucide Icons & FontAwesome -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- AOS Library for Scroll Animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -17,6 +18,9 @@
     
     <!-- Particles.js for Animated Background -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    
+    
     
     <!-- Custom Styles -->
     <style>
@@ -104,6 +108,7 @@
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
+            height: 8px;
         }
         
         ::-webkit-scrollbar-track {
@@ -133,6 +138,15 @@
         .float-animation {
             animation: float 5s infinite ease-in-out;
         }
+        
+        /* Hide scrollbar for slider but keep functionality */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="bg-black text-gray-100">
@@ -143,15 +157,14 @@
     <nav class="glassmorphism fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
-            <!-- Logo -->
-<div class="flex items-center space-x-3">
-    <img 
-        src="https://image2url.com/r2/default/images/1773288125769-97fa1340-566f-45ab-bc1f-33ce7573297d.png" 
-        alt="Logo Team Kaze"
-        class="w-10 h-10 object-contain"
-    >
-    <span class="text-2xl font-bold gradient-text">TEAM KAZE</span>
-</div>
+            <div class="flex items-center space-x-3">
+                <img 
+                    src="https://image2url.com/r2/default/images/1773288125769-97fa1340-566f-45ab-bc1f-33ce7573297d.png" 
+                    alt="Logo Team Kaze"
+                    class="w-10 h-10 object-contain"
+                >
+                <span class="text-2xl font-bold gradient-text">TEAM KAZE</span>
+            </div>
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8">
@@ -209,11 +222,9 @@
             </div>
             
             <!-- Animated Stats -->
-                <div class="glassmorphism p-6 rounded-xl hover-lift" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl font-bold text-purple-400 mb-2">18</div>
-                    <div class="text-gray-400">KAZE MEMBERS</div>
-                </div>
-                </div>
+            <div class="glassmorphism p-6 rounded-xl hover-lift max-w-[200px] mx-auto mt-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-4xl font-bold text-purple-400 mb-2">18</div>
+                <div class="text-gray-400 text-sm font-bold tracking-wider">KAZE MEMBERS</div>
             </div>
         </div>
         
@@ -224,739 +235,493 @@
     
     <!-- About Team Section -->
     <section id="about" class="py-20 relative">
-    <div class="container mx-auto px-6 md:px-12">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">A FILOSOFIA <span class="gradient-text">KAZE</span></h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                No Team Kaze, não acreditamos em um único jeito de jogar. Nós abraçamos as cinco modalidades mais desafiadoras do cenário para formar uma equipe versátil, imprevisível e letal.
-            </p>
-        </div>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-            <!-- Ground Pincher -->
-            <div data-aos="fade-up" data-aos-delay="100">
-                <div class="glassmorphism p-8 rounded-2xl hover-lift h-full flex flex-col">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 flex items-center justify-center shrink-0">
-                            <i data-lucide="minimize-2" class="w-6 h-6 text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold">Ground Pincher</h3>
-                    </div>
-                    <p class="text-gray-300 mb-6 flex-grow">
-                        Mestres do controle de bola no chão. Capazes de gerar uma força absurda em espaços curtíssimos usando o solo a seu favor.
-                    </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400"></i>
-                            <span>Força e precisão extremas</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400"></i>
-                            <span>Pinch blocks defensivos</span>
-                        </li>
-                    </ul>
-                </div>
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">A FILOSOFIA <span class="gradient-text">KAZE</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    No Team Kaze, não acreditamos em um único jeito de jogar. Nós abraçamos as cinco modalidades mais desafiadoras do cenário para formar uma equipe versátil, imprevisível e letal.
+                </p>
             </div>
             
-            <!-- Competitive Clip Hitter -->
-            <div data-aos="fade-up" data-aos-delay="200">
-                <div class="glassmorphism p-8 rounded-2xl hover-lift h-full flex flex-col">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center shrink-0">
-                            <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Ground Pincher -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="glassmorphism p-8 rounded-2xl hover-lift h-full flex flex-col">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="minimize-2" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Ground Pincher</h3>
                         </div>
-                        <h3 class="text-2xl font-bold">Comp Clip Hitter</h3>
+                        <p class="text-gray-300 mb-6 flex-grow">
+                            Mestres do controle de bola no chão. Capazes de gerar uma força absurda em espaços curtíssimos usando o solo a seu favor.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400"></i>
+                                <span>Força e precisão extremas</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400"></i>
+                                <span>Pinch blocks defensivos</span>
+                            </li>
+                        </ul>
                     </div>
-                    <p class="text-gray-300 mb-6 flex-grow">
-                        A união perfeita entre mecânica de elite e eficiência competitiva. Fazem o impossível parecer fácil mesmo sob pressão.
-                    </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-blue-400"></i>
-                            <span>Mecânica de elite consistente</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-blue-400"></i>
-                            <span>Frieza em campeonatos</span>
-                        </li>
-                    </ul>
                 </div>
-            </div>
-
-            <!-- Tryhard -->
-            <div data-aos="fade-up" data-aos-delay="300">
-                <div class="glassmorphism p-8 rounded-2xl hover-lift h-full flex flex-col">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-red-600 to-orange-600 flex items-center justify-center shrink-0">
-                            <i data-lucide="flame" class="w-6 h-6 text-white"></i>
+                
+                <!-- Competitive Clip Hitter -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="glassmorphism p-8 rounded-2xl hover-lift h-full flex flex-col">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Comp Clip Hitter</h3>
                         </div>
-                        <h3 class="text-2xl font-bold">Tryhard</h3>
+                        <p class="text-gray-300 mb-6 flex-grow">
+                            A união perfeita entre mecânica de elite e eficiência competitiva. Fazem o impossível parecer fácil mesmo sob pressão.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-blue-400"></i>
+                                <span>Mecânica de elite consistente</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-blue-400"></i>
+                                <span>Frieza em campeonatos</span>
+                            </li>
+                        </ul>
                     </div>
-                    <p class="text-gray-300 mb-6 flex-grow">
-                        Foco absoluto na vitória. Rotações impecáveis, leitura de jogo e 50/50s agressivos. São o motor estrutural da equipe.
-                    </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-red-400"></i>
-                            <span>Rotação e posicionamento</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-red-400"></i>
-                            <span>Mentalidade inabalável</span>
-                        </li>
-                    </ul>
                 </div>
-            </div>
 
-            <!-- Freestyler -->
-            <div data-aos="fade-up" data-aos-delay="400">
-                <div class="glassmorphism p-8 rounded-2xl hover-lift h-full flex flex-col">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center shrink-0">
-                            <i data-lucide="rocket" class="w-6 h-6 text-white"></i>
+                <!-- Tryhard -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="glassmorphism p-8 rounded-2xl hover-lift h-full flex flex-col">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-red-600 to-orange-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="flame" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Tryhard</h3>
                         </div>
-                        <h3 class="text-2xl font-bold">Freestyler</h3>
+                        <p class="text-gray-300 mb-6 flex-grow">
+                            Foco absoluto na vitória. Rotações impecáveis, leitura de jogo e 50/50s agressivos. São o motor estrutural da equipe.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-red-400"></i>
+                                <span>Rotação e posicionamento</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-red-400"></i>
+                                <span>Mentalidade inabalável</span>
+                            </li>
+                        </ul>
                     </div>
-                    <p class="text-gray-300 mb-6 flex-grow">
-                        Os artistas do ar. Criatividade sem limites, dominando flip resets e mecânicas absurdamente avançadas em campo.
-                    </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-purple-400"></i>
-                            <span>Controle aéreo absoluto</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-purple-400"></i>
-                            <span>Mecânicas imprevisíveis</span>
-                        </li>
-                    </ul>
                 </div>
-            </div>
 
-            <!-- No-Flipper -->
-            <div data-aos="fade-up" data-aos-delay="500" class="md:col-span-2 lg:col-span-1">
-                <div class="glassmorphism p-8 rounded-2xl hover-lift h-full flex flex-col">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 flex items-center justify-center shrink-0">
-                            <i data-lucide="gamepad-2" class="w-6 h-6 text-white"></i>
+                <!-- Freestyler -->
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="glassmorphism p-8 rounded-2xl hover-lift h-full flex flex-col">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="rocket" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Freestyler</h3>
                         </div>
-                        <h3 class="text-2xl font-bold">No-Flipper</h3>
+                        <p class="text-gray-300 mb-6 flex-grow">
+                            Os artistas do ar. Criatividade sem limites, dominando flip resets e mecânicas absurdamente avançadas em campo.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-purple-400"></i>
+                                <span>Controle aéreo absoluto</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-purple-400"></i>
+                                <span>Mecânicas imprevisíveis</span>
+                            </li>
+                        </ul>
                     </div>
-                    <p class="text-gray-300 mb-6 flex-grow">
-                        A essência do controle. Desafiando o uso de flips, dominam o adversário com pura precisão de joystick e wave dashes insanos.
-                    </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
-                            <span>Domínio de Wave Dashes</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
-                            <span>Recuperação ultra-rápida</span>
-                        </li>
-                    </ul>
+                </div>
+
+                <!-- No-Flipper -->
+                <div data-aos="fade-up" data-aos-delay="500" class="md:col-span-2 lg:col-span-1">
+                    <div class="glassmorphism p-8 rounded-2xl hover-lift h-full flex flex-col">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="gamepad-2" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">No-Flipper</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6 flex-grow">
+                            A essência do controle. Desafiando o uso de flips, dominam o adversário com pura precisão de joystick e wave dashes insanos.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+                                <span>Domínio de Wave Dashes</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+                                <span>Recuperação ultra-rápida</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    
     <!-- Players Section -->
-<section id="players" class="py-20 bg-gradient-to-b from-black to-gray-900/30">
-<!-- Wrapper centralizado com limite máximo de largura e bordas generosas -->
-<div class="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-<div class="text-center mb-16" data-aos="fade-up">
-<h2 class="text-4xl md:text-5xl font-bold mb-6">CONHEÇA NOSSO <span class="gradient-text">ELENCO</span></h2>
-<p class="text-xl text-gray-300 max-w-3xl mx-auto">
-Os jogadores de elite que redefinem o que é possível nas arenas do Rocket League, divididos por suas especialidades únicas.
-</p>
-</div>
-
-    <!-- Players Slider - Cards Compactos e Centralizados -->
-    <div class="section-slider flex overflow-x-auto py-8 gap-6 snap-x hide-scrollbar" id="players-slider">
-        
-        <!-- ================= MODALIDADE 1: GROUND PINCHER ================= -->
-        
-        <!-- Owner -->
-
-    <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-        <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up">
-            <div class="relative">
-                <!-- TROQUE A FOTO ABAIXO -->
-                <img src="https://image2url.com/r2/default/images/1773327472135-a922a71a-9e9f-4d82-b051-0ac200a1aaab.png" alt="Hazzard" class="w-full h-36 object-cover">
-                <!-- TAG OWNER DOURADA -->
-                <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-yellow-500 to-amber-600 text-[10px] font-bold text-white shadow-[0_0_10px_rgba(245,158,11,0.5)] tracking-wider">
-                    OWNER
-                </div>
-            </div>
-            <div class="p-5 flex-grow flex flex-col">
-                <div class="flex justify-between items-start mb-3">
-                    <div>
-                        <h3 class="text-xl font-bold uppercase leading-none mb-1">Hazzard</h3>
-                        <!-- PATENTE EM DOURADO PARA COMBINAR -->
-                        <p class="text-yellow-400 text-xs font-medium">Grand Champion 1</p>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-xl font-bold text-green-400 leading-none">1,546</div>
-                        <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                    </div>
-                </div>
-                <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                    Fundador.
+    <section id="players" class="py-20 bg-gradient-to-b from-black to-gray-900/30">
+        <div class="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">CONHEÇA NOSSO <span class="gradient-text">ELENCO</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Os jogadores de elite que redefinem o que é possível nas arenas do Rocket League, divididos por suas especialidades únicas.
                 </p>
-                <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                    <div>
-                        <div class="text-gray-400 mb-0.5">1s Rank</div>
-                        <div class="font-bold text-white text-sm">1060</div>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-gray-400 mb-0.5">3s Rank</div>
-                        <div class="font-bold text-white text-sm">1439</div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </div>
 
 
+            
+            <!-- Players Slider - Cards Compactos e Centralizados -->
+            <div class="section-slider flex overflow-x-auto py-8 gap-6 snap-x hide-scrollbar" id="players-slider">
+                
+                <!-- Owner -->
+                <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
+                    <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up">
+                        <div class="relative">
+                            <img src="https://image2url.com/r2/default/images/1773327472135-a922a71a-9e9f-4d82-b051-0ac200a1aaab.png" alt="Hazzard" class="w-full h-36 object-cover">
+                            <!-- TAG OWNER DOURADA -->
+                            <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-yellow-500 to-amber-600 text-[10px] font-bold text-white shadow-[0_0_10px_rgba(245,158,11,0.5)] tracking-wider">
+                                OWNER
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold uppercase leading-none mb-1">Hazzard</h3>
+                                    <p class="text-yellow-400 text-xs font-medium">Grand Champion 1</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-green-400 leading-none">1,546</div>
+                                    <div class="text-[10px] text-gray-400 mt-1">MMR</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
+                                Fundador.
+                            </p>
+                            <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
+                                <div>
+                                    <div class="text-gray-400 mb-0.5">1s Rank</div>
+                                    <div class="font-bold text-white text-sm">1060</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-gray-400 mb-0.5">3s Rank</div>
+                                    <div class="font-bold text-white text-sm">1439</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Leader -->
+                <!-- Leader -->
+                <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
+                    <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative">
+                            <img src="https://image2url.com/r2/default/images/1773329466452-c265c20d-a015-498d-a38e-3bee127dab94.png" alt="Near" class="w-full h-36 object-cover">
+                            <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-[10px] font-bold text-white shadow-[0_0_10px_rgba(249,115,22,0.5)] tracking-wider">
+                                LEADER
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold uppercase leading-none mb-1">Near</h3>
+                                    <p class="text-orange-400 text-xs font-medium">Grand Champion 3</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-green-400 leading-none">1722</div>
+                                    <div class="text-[10px] text-gray-400 mt-1">MMR</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
+                                Fundador.
+                            </p>
+                            <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
+                                <div>
+                                    <div class="text-gray-400 mb-0.5">1s Rank</div>
+                                    <div class="font-bold text-white text-sm">???</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-gray-400 mb-0.5">3s Rank</div>
+                                    <div class="font-bold text-white text-sm">???</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-    <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up">
-        <div class="relative">
-            <!-- TROQUE A FOTO ABAIXO -->
-            <img src="https://image2url.com/r2/default/images/1773329466452-c265c20d-a015-498d-a38e-3bee127dab94.png" alt="Near" class="w-full h-36 object-cover">
-            <!-- TAG Leader Laranja -->
-            <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-[10px] font-bold text-white shadow-[0_0_10px_rgba(249,115,22,0.5)] tracking-wider">
-                LEADER
+                <!-- Helper -->
+                <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
+                    <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative">
+                            <img src="https://image2url.com/r2/default/images/1773330053053-af201f3e-57ab-4c24-83b2-8853e5308bf2.png" alt="Nafyaas" class="w-full h-36 object-cover">
+                            <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-600 text-[10px] font-bold text-white shadow-[0_0_10px_rgba(8,148,168,0.5)] tracking-wider">
+                                HELPER
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold uppercase leading-none mb-1">Nafyaas</h3>
+                                    <p class="text-cyan-400 text-xs font-medium">Unranked</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-green-400 leading-none">????</div>
+                                    <div class="text-[10px] text-gray-400 mt-1">MMR</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
+                                Fundador.
+                            </p>
+                            <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
+                                <div>
+                                    <div class="text-gray-400 mb-0.5">1s Rank</div>
+                                    <div class="font-bold text-white text-sm">???</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-gray-400 mb-0.5">3s Rank</div>
+                                    <div class="font-bold text-white text-sm">???</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 1: LEAD Ground Pincher -->
+                <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
+                    <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative">
+                            <img src="https://image2url.com/r2/default/images/1773328501084-657baa4c-732c-43c8-958e-f9b153843df5.png" alt="VOID" class="w-full h-36 object-cover">
+                            <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 text-[10px] font-bold text-white shadow-lg tracking-wider">
+                                LEAD PINCHER
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold uppercase leading-none mb-1">VOID</h3>
+                                    <p class="text-cyan-400 text-xs font-medium">Grand Champion 1</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-green-400 leading-none">?</div>
+                                    <div class="text-[10px] text-gray-400 mt-1">MMR</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
+                                O mestre absoluto em pinch, VOID.
+                            </p>
+                            <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
+                                <div>
+                                    <div class="text-gray-400 mb-0.5">Pinch Goals</div>
+                                    <div class="font-bold text-white text-sm">um monte</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-gray-400 mb-0.5">Vel. Máx</div>
+                                    <div class="font-bold text-white text-sm">? km/h</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 3: LEAD Comp Clip Hitter -->
+                <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
+                    <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="400">
+                        <div class="relative">
+                            <img src="https://image2url.com/r2/default/images/1773328556379-c95a79a0-447d-49cf-9367-de2cfc78f62c.png" alt="Snow." class="w-full h-36 object-cover">
+                            <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-[10px] font-bold text-white shadow-lg tracking-wider">
+                                LEAD CLIP HITTER
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold uppercase leading-none mb-1">Snow.</h3>
+                                    <p class="text-blue-400 text-xs font-medium">Grand Champion 3</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-green-400 leading-none">1843</div>
+                                    <div class="text-[10px] text-gray-400 mt-1">MMR</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
+                                O terror dos adversários, Snow. Conssistência absurda em pop resets maktufs Jackzes, etc.
+                            </p>
+                            <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
+                                <div>
+                                    <div class="text-gray-400 mb-0.5">Clips em Camp.</div>
+                                    <div class="font-bold text-white text-sm">????</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-gray-400 mb-0.5">MVP Awards</div>
+                                    <div class="font-bold text-white text-sm">????</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 5: LEAD Tryhard -->
+                <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
+                    <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="500">
+                        <div class="relative">
+                            <img src="https://image2url.com/r2/default/images/1773328613171-c68d37bf-79a2-46ae-a2e6-20e991040b45.png" alt="Drk" class="w-full h-36 object-cover">
+                            <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-red-600 to-orange-600 text-[10px] font-bold text-white shadow-lg tracking-wider">
+                                LEAD TRYHARD
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold uppercase leading-none mb-1">Drk</h3>
+                                    <p class="text-red-400 text-xs font-medium">Grand Champion 2</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-green-400 leading-none">1632</div>
+                                    <div class="text-[10px] text-gray-400 mt-1">MMR</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
+                                Uma mentalidade de aço.
+                            </p>
+                            <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
+                                <div>
+                                    <div class="text-gray-400 mb-0.5">Torneios Venc.</div>
+                                    <div class="font-bold text-white text-sm">????</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-gray-400 mb-0.5">????</div>
+                                    <div class="font-bold text-white text-sm">????</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 7: LEAD Freestyler -->
+                <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
+                    <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="600">
+                        <div class="relative">
+                            <img src="https://image2url.com/r2/default/images/1773328440679-b90a9387-8722-453a-bf86-22ea309f8801.png" alt="Nx" class="w-full h-36 object-cover">
+                            <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-[10px] font-bold text-white shadow-lg tracking-wider">
+                                LEAD FREESTYLER
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-bold uppercase leading-none mb-1">Nx</h3>
+                                    <p class="text-purple-400 text-xs font-medium">Grand Champion 1</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-green-400 leading-none">1454</div>
+                                    <div class="text-[10px] text-gray-400 mt-1">MMR</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
+                                A gravidade não existe. heli-resets conssistentes, transforma a arena na sua tela de pintura.
+                            </p>
+                            <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
+                                <div>
+                                    <div class="text-gray-400 mb-0.5">Max Resets</div>
+                                    <div class="font-bold text-white text-sm">13 seguidos</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-gray-400 mb-0.5">Max Mustys</div>
+                                    <div class="font-bold text-white text-sm">6 seguidos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
-        <div class="p-5 flex-grow flex flex-col">
-            <div class="flex justify-between items-start mb-3">
-                <div>
-                    <h3 class="text-xl font-bold uppercase leading-none mb-1">Near</h3>
-                    <!-- PATENTE EM Laranja PARA COMBINAR -->
-                    <p class="text-orange-400 text-xs font-medium">Grand Champion 3</p>
-                </div>
-                <div class="text-right">
-                    <div class="text-xl font-bold text-green-400 leading-none">1722</div>
-                    <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                </div>
-            </div>
-            <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                Fundador.
-            </p>
-            <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                <div>
-                    <div class="text-gray-400 mb-0.5">1s Rank</div>
-                    <div class="font-bold text-white text-sm">???</div>
-                </div>
-                <div class="text-right">
-                    <div class="text-gray-400 mb-0.5">3s Rank</div>
-                    <div class="font-bold text-white text-sm">???</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-
-<!-- Helper -->
-
-<div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-    <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up">
-        <div class="relative">
-            <!-- TROQUE A FOTO ABAIXO -->
-            <img src="https://image2url.com/r2/default/images/1773330053053-af201f3e-57ab-4c24-83b2-8853e5308bf2.png" alt="Near" class="w-full h-36 object-cover">
-            <!-- TAG Helper Ciano -->
-            <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-600 text-[10px] font-bold text-white shadow-[0_0_10px_rgba(249,115,22,0.5)] tracking-wider">
-                Helper
-            </div>
-        </div>
-        <div class="p-5 flex-grow flex flex-col">
-            <div class="flex justify-between items-start mb-3">
-                <div>
-                    <h3 class="text-xl font-bold uppercase leading-none mb-1">Nafyaas</h3>
-                    <!-- PATENTE EM Ciano PARA COMBINAR -->
-                    <p class="text-cyan-400 text-xs font-medium">Unranked</p>
-                </div>
-                <div class="text-right">
-                    <div class="text-xl font-bold text-green-400 leading-none">????</div>
-                    <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                </div>
-            </div>
-            <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                Fundador.
-            </p>
-            <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                <div>
-                    <div class="text-gray-400 mb-0.5">1s Rank</div>
-                    <div class="font-bold text-white text-sm">???</div>
-                </div>
-                <div class="text-right">
-                    <div class="text-gray-400 mb-0.5">3s Rank</div>
-                    <div class="font-bold text-white text-sm">???</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-        
-        
-        <!-- Player 1: LEAD Ground Pincher -->
-        <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-            <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up">
-                <div class="relative">
-                    <!-- TROQUE A FOTO ABAIXO -->
-                    <img src="https://image2url.com/r2/default/images/1773328501084-657baa4c-732c-43c8-958e-f9b153843df5.png" alt="AeroKz" class="w-full h-36 object-cover">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 text-[10px] font-bold text-white shadow-lg tracking-wider">
-                        LEAD PINCHER
-                    </div>
-                </div>
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold uppercase leading-none mb-1">VOID</h3>
-                            <p class="text-cyan-400 text-xs font-medium">Grand Champion 1</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xl font-bold text-green-400 leading-none">?</div>
-                            <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                        O mestre absoluto do solo, VOID.
-                    </p>
-                    <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                        <div>
-                            <div class="text-gray-400 mb-0.5">Pinch Goals</div>
-                            <div class="font-bold text-white text-sm">um monte</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-gray-400 mb-0.5">Vel. Máx</div>
-                            <div class="font-bold text-white text-sm">? km/h</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Player 2: MEMBER Ground Pincher -->
-        <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-            <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                <div class="relative">
-                    <img src="https://via.placeholder.com/400x300/0d1117/38bdf8?text=FOTO+TECTONIC" alt="Tectonic" class="w-full h-36 object-cover">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full border border-cyan-500 bg-cyan-900/50 text-[10px] font-bold text-cyan-100 backdrop-blur-sm tracking-wider">
-                        GROUND PINCHER
-                    </div>
-                </div>
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold uppercase leading-none mb-1">????</h3>
-                            <p class="text-cyan-400 text-xs font-medium">????</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xl font-bold text-green-400 leading-none">????</div>
-                            <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                        ????
-                    </p>
-                    <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                        <div>
-                            <div class="text-gray-400 mb-0.5">????</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-gray-400 mb-0.5">Win Rate</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= MODALIDADE 2: COMP CLIP HITTER ================= -->
-
-        <!-- Player 3: LEAD Comp Clip Hitter -->
-        <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-            <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="150">
-                <div class="relative">
-                    <img src="https://image2url.com/r2/default/images/1773328556379-c95a79a0-447d-49cf-9367-de2cfc78f62c.png" alt="Nexus" class="w-full h-36 object-cover">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-[10px] font-bold text-white shadow-lg tracking-wider">
-                        LEAD CLIP HITTER
-                    </div>
-                </div>
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold uppercase leading-none mb-1">Snow.</h3>
-                            <p class="text-blue-400 text-xs font-medium">Grand Champion 3</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xl font-bold text-green-400 leading-none">1843</div>
-                            <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                        O terror dos adversários, Snow. Conssistência absurda em pop resets maktufs Jackzes, etc.
-                    </p>
-                    <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                        <div>
-                            <div class="text-gray-400 mb-0.5">Clips em Camp.</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-gray-400 mb-0.5">MVP Awards</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Player 4: MEMBER Comp Clip Hitter -->
-        <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-            <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                <div class="relative">
-                    <img src="https://via.placeholder.com/400x300/0d1117/6366f1?text=FOTO+VIBE" alt="Vibe" class="w-full h-36 object-cover">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full border border-blue-500 bg-blue-900/50 text-[10px] font-bold text-blue-100 backdrop-blur-sm tracking-wider">
-                        COMP CLIP HITTER
-                    </div>
-                </div>
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold uppercase leading-none mb-1">????</h3>
-                            <p class="text-blue-400 text-xs font-medium">????</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xl font-bold text-green-400 leading-none">????</div>
-                            <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                        ????
-                    </p>
-                    <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                        <div>
-                            <div class="text-gray-400 mb-0.5">Double Taps</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-gray-400 mb-0.5">Shot Acc %</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= MODALIDADE 3: TRYHARD ================= -->
-
-        <!-- Player 5: LEAD Tryhard -->
-        <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-            <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="250">
-                <div class="relative">
-                    <img src="https://image2url.com/r2/default/images/1773328613171-c68d37bf-79a2-46ae-a2e6-20e991040b45.png" alt="Vanguard" class="w-full h-36 object-cover">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-red-600 to-orange-600 text-[10px] font-bold text-white shadow-lg tracking-wider">
-                        LEAD TRYHARD
-                    </div>
-                </div>
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold uppercase leading-none mb-1">Drk</h3>
-                            <p class="text-red-400 text-xs font-medium">Grand Champion 2</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xl font-bold text-green-400 leading-none">????</div>
-                            <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                        Uma mentalidade de aço.
-                    </p>
-                    <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                        <div>
-                            <div class="text-gray-400 mb-0.5">Torneios Venc.</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-gray-400 mb-0.5">????</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Player 6: MEMBER Tryhard -->
-        <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-            <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="300">
-                <div class="relative">
-                    <img src="https://via.placeholder.com/400x300/0d1117/ef4444?text=FOTO+ECHO" alt="Echo" class="w-full h-36 object-cover">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full border border-red-500 bg-red-900/50 text-[10px] font-bold text-red-100 backdrop-blur-sm tracking-wider">
-                        TRYHARD
-                    </div>
-                </div>
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold uppercase leading-none mb-1">????</h3>
-                            <p class="text-red-400 text-xs font-medium">????</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xl font-bold text-green-400 leading-none">????</div>
-                            <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                        ????
-                    </p>
-                    <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                        <div>
-                            <div class="text-gray-400 mb-0.5">Epic Saves</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-gray-400 mb-0.5">Playtime</div>
-                            <div class="font-bold text-white text-sm">????h</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= MODALIDADE 4: FREESTYLER ================= -->
-
-        <!-- Player 7: LEAD Freestyler -->
-        <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-            <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="350">
-                <div class="relative">
-                    <img src="https://image2url.com/r2/default/images/1773328440679-b90a9387-8722-453a-bf86-22ea309f8801.png" alt="Zenith" class="w-full h-36 object-cover">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-[10px] font-bold text-white shadow-lg tracking-wider">
-                        LEAD FREESTYLER
-                    </div>
-                </div>
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold uppercase leading-none mb-1">Nx</h3>
-                            <p class="text-purple-400 text-xs font-medium">Grand Champion 1</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xl font-bold text-green-400 leading-none">1454</div>
-                            <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                        A gravidade não existe. heli-resets conssistentes, transforma a arena na sua tela de pintura.
-                    </p>
-                    <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                        <div>
-                            <div class="text-gray-400 mb-0.5">Max Resets</div>
-                            <div class="font-bold text-white text-sm">13 seguidos</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-gray-400 mb-0.5">Max Mustys</div>
-                            <div class="font-bold text-white text-sm">6 seguidos</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Player 8: MEMBER Freestyler -->
-        <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-            <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="400">
-                <div class="relative">
-                    <img src="https://via.placeholder.com/400x300/0d1117/a855f7?text=FOTO+FLOW" alt="Flow" class="w-full h-36 object-cover">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full border border-purple-500 bg-purple-900/50 text-[10px] font-bold text-purple-100 backdrop-blur-sm tracking-wider">
-                        FREESTYLER
-                    </div>
-                </div>
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold uppercase leading-none mb-1">????</h3>
-                            <p class="text-purple-400 text-xs font-medium">????</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xl font-bold text-green-400 leading-none">????</div>
-                            <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                        ????
-                    </p>
-                    <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                        <div>
-                            <div class="text-gray-400 mb-0.5">Air Time</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-gray-400 mb-0.5">Mustys</div>
-                            <div class="font-bold text-white text-sm">????+</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= MODALIDADE 5: NO-FLIPPER ================= -->
-
-        <!-- Player 9: LEAD No-Flipper -->
-        <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-            <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="450">
-                <div class="relative">
-                    <img src="https://via.placeholder.com/400x300/0d1117/10b981?text=FOTO+STATIC" alt="Static" class="w-full h-36 object-cover">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-[10px] font-bold text-white shadow-lg tracking-wider">
-                        LEAD NO-FLIPPER
-                    </div>
-                </div>
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold uppercase leading-none mb-1">????</h3>
-                            <p class="text-emerald-400 text-xs font-medium">????</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xl font-bold text-green-400 leading-none">????</div>
-                            <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                        ????
-                    </p>
-                    <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                        <div>
-                            <div class="text-gray-400 mb-0.5">Wave Dashes</div>
-                            <div class="font-bold text-white text-sm">Incontáveis</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-gray-400 mb-0.5">????</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Player 10: MEMBER No-Flipper -->
-        <div class="w-[260px] sm:w-[280px] flex-shrink-0 snap-center">
-            <div class="glassmorphism rounded-2xl overflow-hidden hover-lift h-full flex flex-col" data-aos="fade-up" data-aos-delay="500">
-                <div class="relative">
-                    <img src="https://via.placeholder.com/400x300/0d1117/10b981?text=FOTO+DRIFT" alt="Drift" class="w-full h-36 object-cover">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-full border border-emerald-500 bg-emerald-900/50 text-[10px] font-bold text-emerald-100 backdrop-blur-sm tracking-wider">
-                        NO-FLIPPER
-                    </div>
-                </div>
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold uppercase leading-none mb-1">????</h3>
-                            <p class="text-emerald-400 text-xs font-medium">????</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xl font-bold text-green-400 leading-none">????</div>
-                            <div class="text-[10px] text-gray-400 mt-1">MMR</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 flex-grow text-xs sm:text-sm leading-relaxed">
-                        ????
-                    </p>
-                    <div class="flex justify-between text-xs mt-auto pt-3 border-t border-gray-700/50">
-                        <div>
-                            <div class="text-gray-400 mb-0.5">????</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-gray-400 mb-0.5">????</div>
-                            <div class="font-bold text-white text-sm">????</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-</section>
             
             <!-- Slider Controls -->
-            <div class="flex justify-center mt-8 gap-4">
-                <button class="players-slider-prev p-3 glassmorphism rounded-full hover:bg-gray-800">
+            <div class="flex justify-center mt-4 gap-4">
+                <button class="p-3 glassmorphism rounded-full hover:bg-white/10" onclick="document.getElementById('players-slider').scrollBy({left: -300, behavior: 'smooth'})">
                     <i data-lucide="chevron-left" class="w-5 h-5"></i>
                 </button>
-                <button class="players-slider-next p-3 glassmorphism rounded-full hover:bg-gray-800">
+                <button class="p-3 glassmorphism rounded-full hover:bg-white/10" onclick="document.getElementById('players-slider').scrollBy({left: 300, behavior: 'smooth'})">
                     <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <!-- Botão Enviar Clipes -->
+            <div class="flex justify-center mt-12" data-aos="fade-up">
+                <button onclick="openClipsModal()" class="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg font-bold text-lg hover-lift flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(8,145,178,0.4)]">
+                    <i data-lucide="video" class="w-5 h-5"></i>
+                    ENVIE SEUS CLIPES
                 </button>
             </div>
         </div>
     </section>
-    
-<!-- Upcoming Matches Section -->
 
-<section id="matches" class="py-20 relative">
-<div class="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-<div class="text-center mb-16" data-aos="fade-up">
-<h2 class="text-4xl md:text-5xl font-bold mb-6">PRÓXIMAS <span class="gradient-text">PARTIDAS</span></h2>
-<p class="text-xl text-gray-300 max-w-3xl mx-auto">
-Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
-</p>
-</div>
-
-    <!-- Estado Vazio (Sem Partidas) -->
-    <div class="max-w-3xl mx-auto" data-aos="fade-up">
-        <div class="glassmorphism p-10 md:p-16 rounded-2xl hover-lift text-center flex flex-col items-center justify-center border border-gray-800/50">
-            
-            <!-- Ícone de Calendário Vazio -->
-            <div class="w-20 h-20 rounded-full bg-gray-800/50 flex items-center justify-center mb-6 border border-gray-700/50">
-                <i data-lucide="calendar-clock" class="w-10 h-10 text-gray-400"></i>
+    <!-- Upcoming Matches Section -->
+    <section id="matches" class="py-20 relative border-t border-gray-800 bg-gray-950">
+        <div class="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">PRÓXIMAS <span class="gradient-text">PARTIDAS</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
+                </p>
             </div>
-            
-            <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white">Equipe em Preparação</h3>
-            <p class="text-gray-400 mb-8 max-w-lg mx-auto leading-relaxed">
-                Nossa line-up acabou de ser formada e está focada em treinamentos intensos e criação de sinergia. Para mais informações, novidades e anúncios de estreias, junte-se à nossa comunidade!
-            </p>
-            
-            <!-- Botão Discord -->
-            <a href="https://discord.gg/4wqrGh4cje" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 border border-indigo-500/50 rounded-lg font-bold text-white tracking-widest text-sm transition-all duration-300 shadow-[0_0_15px_rgba(79,70,229,0.3)] hover:shadow-[0_0_25px_rgba(79,70,229,0.5)]">
-                ACESSE NOSSO DISCORD OFICIAL
-            </a>
-            
+
+            <!-- Container onde as partidas vão aparecer via SheetDB -->
+            <div id="matches-container" class="max-w-4xl mx-auto space-y-4">
+                <!-- JavaScript vai injetar aqui -->
+            </div>
+
+            <!-- Estado Vazio (Aparece se não tiver partidas) -->
+            <div id="empty-matches" class="max-w-3xl mx-auto hidden" data-aos="fade-up">
+                <div class="glassmorphism p-10 md:p-16 rounded-2xl hover-lift text-center flex flex-col items-center justify-center border border-gray-800/50">
+                    
+                    <div class="w-20 h-20 rounded-full bg-gray-800/50 flex items-center justify-center mb-6 border border-gray-700/50">
+                        <i data-lucide="calendar-clock" class="w-10 h-10 text-gray-400"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white">Equipe em Preparação</h3>
+                    <p class="text-gray-400 mb-8 max-w-lg mx-auto leading-relaxed">
+                        Nossa line-up acabou de ser formada e está focada em treinamentos intensos e criação de sinergia. Para mais informações, novidades e anúncios de estreias, junte-se à nossa comunidade!
+                    </p>
+                    
+                    <a href="https://discord.gg/4wqrGh4cje" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 border border-indigo-500/50 rounded-lg font-bold text-white tracking-widest text-sm transition-all duration-300 shadow-[0_0_15px_rgba(79,70,229,0.3)] hover:shadow-[0_0_25px_rgba(79,70,229,0.5)]">
+                        ACESSE NOSSO DISCORD OFICIAL
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
-
-</section>
-    
-<!-- Achievements / History Section -->
-    <section id="achievements" class="py-20 bg-gradient-to-b from-gray-900/30 to-black">
-        <div class="container mx-auto px-6 md:px-12">
+    <!-- Timeline / Histórico Section -->
+    <section id="achievements" class="py-20 relative bg-gradient-to-b from-gray-900/30 to-black">
+        <div class="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">INÍCIO DA <span class="gradient-text">JORNADA</span></h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Os primeiros passos da nossa line-up rumo à excelência competitiva.
                 </p>
             </div>
-            
-            <!-- Timeline -->
-            <div class="relative">
+
+            <div class="relative max-w-4xl mx-auto mt-12">
                 <!-- Timeline line -->
-                <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-600 to-pink-600"></div>
+                <div class="absolute top-0 bottom-0 left-4 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-gradient-to-b from-purple-600 to-pink-600 rounded-full"></div>
                 
                 <!-- Timeline Item 1 -->
-                <div class="relative mb-12 md:w-1/2 md:ml-auto md:pl-12" data-aos="fade-left">
+                <div class="relative mb-12 md:w-1/2 md:ml-auto pl-12 md:pl-12" data-aos="fade-left">
                     <div class="glassmorphism p-6 rounded-2xl hover-lift">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
@@ -971,11 +736,11 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                             Nascimento oficial do Team Kaze. Estruturação do nosso servidor principal no Discord para abrigar a comunidade, centralizar táticas e organizar as operações do time.
                         </p>
                     </div>
-                    <div class="absolute top-6 -left-2 md:left-auto md:-right-2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600"></div>
+                    <div class="absolute top-6 left-2 md:left-auto md:-right-2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600"></div>
                 </div>
                 
                 <!-- Timeline Item 2 -->
-                <div class="relative mb-12 md:w-1/2 md:pr-12" data-aos="fade-right">
+                <div class="relative mb-12 md:w-1/2 md:pr-12 pl-12 md:pl-0" data-aos="fade-right">
                     <div class="glassmorphism p-6 rounded-2xl hover-lift">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
@@ -990,11 +755,15 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                             Apresentação oficial dos novos Leads para cada uma das nossas 5 modalidades de jogo. A base de coordenação para os treinos mecânicos foi estabelecida.
                         </p>
                     </div>
-                    <div class="absolute top-6 -left-2 md:left-auto md:-right-2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600"></div>
+                    <!-- Para mobile fica à esquerda, no desktop fica à direita -->
+                    <div class="absolute top-6 left-2 md:left-auto md:-right-2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 md:-right-2 md:left-auto" style="left: auto; right: -8px;"></div>
+                    <!-- Pequeno ajuste inline acima para garantir que o ponto fica na linha no desktop como no original -->
+                    <div class="absolute top-6 left-2 md:hidden w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600"></div>
+                    <div class="absolute top-6 -right-2 hidden md:block w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600"></div>
                 </div>
                 
                 <!-- Timeline Item 3 -->
-                <div class="relative mb-12 md:w-1/2 md:ml-auto md:pl-12" data-aos="fade-left">
+                <div class="relative md:w-1/2 md:ml-auto pl-12 md:pl-12" data-aos="fade-left">
                     <div class="glassmorphism p-6 rounded-2xl hover-lift">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
@@ -1009,12 +778,13 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                             Estamos ativamente recrutando Tryhards implacáveis e buscando novos talentos de elite para fechar nossa line-up competitiva e dar início aos torneios oficiais.
                         </p>
                     </div>
-                    <div class="absolute top-6 -left-2 md:left-auto md:-right-2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600"></div>
+                    <div class="absolute top-6 left-2 md:left-auto md:-right-2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600"></div>
                 </div>
+                
             </div>
         </div>
     </section>
-    
+
     <!-- Contact/Partners Section -->
     <section id="contact" class="py-20">
         <div class="container mx-auto px-6 md:px-12">
@@ -1090,62 +860,47 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
         </div>
     </section>
 
-    <!-- ========================================== -->
-<!-- 1. COLE ESSE BOTÃO ONDE QUISER NO SEU SITE -->
-<!-- ========================================== -->
-<button onclick="openClipsModal()" class="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg font-bold text-lg hover-lift flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(8,145,178,0.4)]">
-    <i data-lucide="video" class="w-5 h-5"></i>
-    ENVIE SEUS CLIPES
-</button>
-
-
-<!-- ========================================== -->
-<!-- 2. COLE ESSE HTML NO FINAL DO SITE (ANTES DO <script>) -->
-<!-- ========================================== -->
-<!-- Modal de Clipes -->
-<div id="clips-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity opacity-0">
-    <div class="glassmorphism p-8 rounded-2xl w-full max-w-lg mx-4 relative transform scale-95 transition-transform duration-300 border border-gray-700/50 shadow-2xl">
-        
-        <!-- Botão de Fechar -->
-        <button onclick="closeClipsModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
-            <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-
-        <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 flex items-center justify-center">
-                <i data-lucide="crosshair" class="w-5 h-5 text-white"></i>
-            </div>
-            <h3 class="text-2xl font-bold">ENVIE SEUS <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">CLIPES</span></h3>
-        </div>
-        
-        <p class="text-gray-400 mb-6 text-sm leading-relaxed">Mostre suas mecânicas! Preencha o formulário abaixo e nossa equipe de recrutamento vai avaliar suas melhores jogadas.</p>
-
-        <form id="clips-form" class="space-y-4">
-            <div>
-                <label class="block text-gray-400 mb-2 text-sm font-medium">Seu Nick no Jogo</label>
-                <input type="text" name="nick_jogo" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="Ex: Kaze | Player">
-            </div>
-            <div>
-                <label class="block text-gray-400 mb-2 text-sm font-medium">Seu Email para Contato</label>
-                <input type="email" name="email_contato" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="voce@exemplo.com">
-            </div>
-            <div>
-                <label class="block text-gray-400 mb-2 text-sm font-medium">Link do Clipe (YouTube, Medal, Twitch...)</label>
-                <input type="url" name="link_clipe" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="https://...">
-            </div>
-            <div>
-                <label class="block text-gray-400 mb-2 text-sm font-medium">Patente Atual & Modalidade (Opcional)</label>
-                <textarea name="descricao_clipe" rows="2" class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="Ex: GC2 - Especialista em Ground Pinch..."></textarea>
-            </div>
-            <button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg font-bold text-white hover-lift transition-all mt-4 tracking-wider">
-                ENVIAR PARA AVALIAÇÃO
+    <!-- Modal de Clipes -->
+    <div id="clips-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity opacity-0">
+        <div class="glassmorphism p-8 rounded-2xl w-full max-w-lg mx-4 relative transform scale-95 transition-transform duration-300 border border-gray-700/50 shadow-2xl">
+            
+            <!-- Botão de Fechar -->
+            <button onclick="closeClipsModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
             </button>
-        </form>
+
+            <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 flex items-center justify-center">
+                    <i data-lucide="crosshair" class="w-5 h-5 text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold">ENVIE SEUS <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">CLIPES</span></h3>
+            </div>
+            
+            <p class="text-gray-400 mb-6 text-sm leading-relaxed">Mostre suas mecânicas! Preencha o formulário abaixo e nossa equipe de recrutamento vai avaliar suas melhores jogadas.</p>
+
+            <form id="clips-form" class="space-y-4">
+                <div>
+                    <label class="block text-gray-400 mb-2 text-sm font-medium">Seu Nick no Jogo</label>
+                    <input type="text" name="nick_jogo" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="Ex: Kaze | Player">
+                </div>
+                <div>
+                    <label class="block text-gray-400 mb-2 text-sm font-medium">Seu Email para Contato</label>
+                    <input type="email" name="email_contato" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="voce@exemplo.com">
+                </div>
+                <div>
+                    <label class="block text-gray-400 mb-2 text-sm font-medium">Link do Clipe (YouTube, Medal, Twitch...)</label>
+                    <input type="url" name="link_clipe" required class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="https://...">
+                </div>
+                <div>
+                    <label class="block text-gray-400 mb-2 text-sm font-medium">Patente Atual & Modalidade (Opcional)</label>
+                    <textarea name="descricao_clipe" rows="2" class="w-full bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors text-white" placeholder="Ex: GC2 - Especialista em Ground Pinch..."></textarea>
+                </div>
+                <button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg font-bold text-white hover-lift transition-all mt-4 tracking-wider">
+                    ENVIAR PARA AVALIAÇÃO
+                </button>
+            </form>
+        </div>
     </div>
-</div>
-
-
-
     
     <!-- Footer -->
     <footer class="glassmorphism border-t border-gray-800 py-12">
@@ -1166,16 +921,16 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                 
                 <div class="flex space-x-6 mb-8 md:mb-0">
                     <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i data-lucide="" class="w-6 h-6"></i>
+                        <i data-lucide="twitter" class="w-6 h-6"></i>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i data-lucide="" class="w-6 h-6"></i>
+                        <i data-lucide="twitch" class="w-6 h-6"></i>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-white transition-colors">
                         <i data-lucide="youtube" class="w-6 h-6"></i>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i data-lucide="" class="w-6 h-6"></i>
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
                     </a>
                     <!-- SVG do Discord Inserido Direto (Para não bugar caso o Lucide atualize) -->
                     <a href="https://discord.gg/4wqrGh4cje" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
@@ -1184,141 +939,54 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                 </div>
                 
                 <div class="text-center md:text-right">
-                    <p class="text-gray-400 mb-2">© 2026 Team Kaze. Todos os direitos reservados.</p>
+                    <div class="flex items-center justify-center md:justify-end gap-2 mb-2">
+                        <p class="text-gray-400">© 2026 Team Kaze. Todos os direitos reservados.</p>
+                        <!-- Link "secreto" para o Painel do Bot -->
+                        <a href="painel.html" class="text-gray-800 hover:text-purple-500 transition-colors" title="Painel Admin">
+                            <i data-lucide="lock" class="w-4 h-4"></i>
+                        </a>
+                    </div>
                     <p class="text-gray-500 text-sm">Não afiliado à Psyonix ou Epic Games.</p>
                 </div>
             </div>
         </div>
     </footer>
 
-
-    
-    <!-- JavaScript -->
-
-    <!-- ========================================== -->
-<!-- 3. COLE ESSE CÓDIGO DENTRO DA SUA TAG <script> (Lá no final do site) -->
-<!-- ========================================== -->
-<script>
-    // Funções para abrir e fechar a nova aba (Modal) com animação suave
-    function openClipsModal() {
-        const modal = document.getElementById('clips-modal');
-        modal.classList.remove('hidden');
-        // Pequeno delay para a animação CSS acontecer
-        setTimeout(() => {
-            modal.classList.remove('opacity-0');
-            modal.querySelector('div').classList.remove('scale-95');
-            modal.querySelector('div').classList.add('scale-100');
-        }, 10);
-    }
-
-    function closeClipsModal() {
-        const modal = document.getElementById('clips-modal');
-        modal.classList.add('opacity-0');
-        modal.querySelector('div').classList.remove('scale-100');
-        modal.querySelector('div').classList.add('scale-95');
-        setTimeout(() => {
-            modal.classList.add('hidden');
-        }, 300); // Tempo igual ao da transição do Tailwind (duration-300)
-    }
-
-    // FECHAR AO CLICAR FORA DA JANELA
-    document.getElementById('clips-modal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeClipsModal();
-        }
-    });
-
-    // Lógica de Envio do Formulário de Clipes (EmailJS)
-    document.addEventListener('DOMContentLoaded', function() {
-        const clipsForm = document.getElementById('clips-form');
-        
-        if (clipsForm) {
-            clipsForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const submitBtn = clipsForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
-                
-                // Usando as suas chaves do EmailJS
-                const SERVICE_ID = 'service_xvpn2xn';
-                const TEMPLATE_ID = 'template_u1fi9y9';
-                const PUBLIC_KEY = 'eQLnK4Eqhq8_wEmJO';
-                
-                submitBtn.textContent = 'ENVIANDO CLIPE...';
-                submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
-                
-                const formData = new FormData(clipsForm);
-                
-                // Mapeando os dados para os campos do Template que você já criou
-                const mensagemFormatada = 
-                    "Link do Clipe: " + formData.get('link_clipe') + 
-                    "\n\nPatente/Detalhes: " + (formData.get('descricao_clipe') || "Não informado.");
-
-                const data = {
-                    service_id: SERVICE_ID,
-                    template_id: TEMPLATE_ID,
-                    user_id: PUBLIC_KEY,
-                    template_params: {
-                        nome: formData.get('nick_jogo'),
-                        email: formData.get('email_contato'),
-                        assunto: "NOVO CLIPE PARA AVALIAÇÃO - " + formData.get('nick_jogo'),
-                        mensagem: mensagemFormatada
-                    }
-                };
-                
-                try {
-                    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    });
-                    
-                    if (response.ok) {
-                        submitBtn.textContent = 'CLIPE ENVIADO COM SUCESSO!';
-                        submitBtn.classList.remove('from-cyan-600', 'to-blue-600', 'opacity-75', 'cursor-not-allowed');
-                        submitBtn.classList.add('from-green-600', 'to-green-500');
-                        clipsForm.reset();
-                        
-                        // Fecha o modal automaticamente após 2.5 segundos
-                        setTimeout(closeClipsModal, 2500);
-                    } else {
-                        submitBtn.textContent = 'ERRO AO ENVIAR';
-                        submitBtn.classList.remove('from-cyan-600', 'to-blue-600', 'opacity-75', 'cursor-not-allowed');
-                        submitBtn.classList.add('from-red-600', 'to-red-500');
-                    }
-                } catch (error) {
-                    submitBtn.textContent = 'ERRO DE CONEXÃO';
-                    submitBtn.classList.remove('from-cyan-600', 'to-blue-600', 'opacity-75', 'cursor-not-allowed');
-                    submitBtn.classList.add('from-red-600', 'to-red-500');
-                }
-                
-                // Reseta o botão visualmente após um tempo, caso dê erro
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.classList.remove('from-green-600', 'to-green-500', 'from-red-600', 'to-red-500');
-                    submitBtn.classList.add('from-cyan-600', 'to-blue-600');
-                }, 3000);
-            });
-        }
-    });
-</script>
+    <!-- Script Principal (UI, EmailJS & SheetDB) -->
     <script>
-        // Initialize AOS (Animate On Scroll)
+        // Funções para abrir e fechar a nova aba (Modal) com animação suave
+        function openClipsModal() {
+            const modal = document.getElementById('clips-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+                modal.querySelector('div').classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeClipsModal() {
+            const modal = document.getElementById('clips-modal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        document.getElementById('clips-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeClipsModal();
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize AOS
-            AOS.init({
-                duration: 1000,
-                once: false,
-                offset: 100,
-                easing: 'ease-out-cubic'
-            });
+            AOS.init({ duration: 1000, once: false, offset: 100, easing: 'ease-out-cubic' });
             
             // Initialize Lucide Icons
             lucide.createIcons();
             
-            // Initialize Particles.js
+            // Initialize Particles
             if(typeof particlesJS !== 'undefined') {
                 particlesJS('particles-bg', {
                     particles: {
@@ -1327,22 +995,8 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                         shape: { type: "circle" },
                         opacity: { value: 0.5, random: true },
                         size: { value: 3, random: true },
-                        line_linked: {
-                            enable: true,
-                            distance: 150,
-                            color: "#8b5cf6",
-                            opacity: 0.2,
-                            width: 1
-                        },
-                        move: {
-                            enable: true,
-                            speed: 2,
-                            direction: "none",
-                            random: true,
-                            straight: false,
-                            out_mode: "out",
-                            bounce: false
-                        }
+                        line_linked: { enable: true, distance: 150, color: "#8b5cf6", opacity: 0.2, width: 1 },
+                        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
                     },
                     interactivity: {
                         detect_on: "canvas",
@@ -1355,7 +1009,7 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                 });
             }
             
-            // Mobile menu toggle
+            // Menu Mobile Toggle
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             
@@ -1370,7 +1024,6 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                     }
                 });
                 
-                // Close mobile menu when clicking a link
                 const mobileLinks = mobileMenu.querySelectorAll('a');
                 mobileLinks.forEach(link => {
                     link.addEventListener('click', function() {
@@ -1380,48 +1033,39 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                 });
             }
             
-            // Smooth scrolling for anchor links
+            // Anchor links scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-                    
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
+                        window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
                     }
                 });
             });
             
-            // Players slider functionality
+            // Players Slider Logic
             const playersSlider = document.getElementById('players-slider');
             const prevBtn = document.querySelector('.players-slider-prev');
             const nextBtn = document.querySelector('.players-slider-next');
             
             if (playersSlider && prevBtn && nextBtn) {
                 const slideWidth = playersSlider.querySelector('.slide') ? playersSlider.querySelector('.slide').offsetWidth : 300;
-                
-                nextBtn.addEventListener('click', function() {
-                    playersSlider.scrollBy({
-                        left: slideWidth,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                prevBtn.addEventListener('click', function() {
-                    playersSlider.scrollBy({
-                        left: -slideWidth,
-                        behavior: 'smooth'
-                    });
-                });
+                nextBtn.addEventListener('click', () => playersSlider.scrollBy({ left: slideWidth, behavior: 'smooth' }));
+                prevBtn.addEventListener('click', () => playersSlider.scrollBy({ left: -slideWidth, behavior: 'smooth' }));
             }
             
-            // Form submission (Atualizado para EmailJS)
+            // Hover effect for cards
+            document.querySelectorAll('.glassmorphism').forEach(card => {
+                card.addEventListener('mouseenter', function() { this.classList.add('neon-glow'); });
+                card.addEventListener('mouseleave', function() { this.classList.remove('neon-glow'); });
+            });
+
+            // =====================================
+            // EMAIL JS - ENVIO DE FORMULÁRIO
+            // =====================================
             const contactForm = document.getElementById('contact-form');
             if (contactForm) {
                 contactForm.addEventListener('submit', async function(e) {
@@ -1430,25 +1074,20 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                     const submitBtn = contactForm.querySelector('button[type="submit"]');
                     const originalText = submitBtn.textContent;
                     
-                    // ======== CONFIGURAÇÃO DO EMAILJS ========
                     // Cole suas chaves do EmailJS nestas 3 variáveis abaixo:
                     const SERVICE_ID = 'service_xvpn2xn';
                     const TEMPLATE_ID = 'template_u1fi9y9';
                     const PUBLIC_KEY = 'eQLnK4Eqhq8_wEmJO';
-                    // =========================================
                     
                     if (SERVICE_ID === 'SEU_SERVICE_ID') {
-                        alert("Atenção: Você precisa colocar suas chaves do EmailJS no código HTML (linha ~420) para o envio funcionar!");
+                        alert("Atenção: Você precisa colocar suas chaves do EmailJS no código HTML (linha ~930) para o envio funcionar!");
                         return;
                     }
                     
-                    // Estado de enviando
                     submitBtn.textContent = 'ENVIANDO...';
                     submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
                     
                     const formData = new FormData(contactForm);
-                    
-                    // Montando os dados para enviar à API do EmailJS
                     const data = {
                         service_id: SERVICE_ID,
                         template_id: TEMPLATE_ID,
@@ -1464,32 +1103,26 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                     try {
                         const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
                             method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
+                            headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(data)
                         });
                         
                         if (response.ok) {
-                            // Sucesso!
                             submitBtn.textContent = 'MENSAGEM ENVIADA!';
                             submitBtn.classList.remove('from-purple-600', 'to-pink-600', 'opacity-75', 'cursor-not-allowed');
                             submitBtn.classList.add('from-green-600', 'to-green-500');
                             contactForm.reset();
                         } else {
-                            // Erro da API
                             submitBtn.textContent = 'ERRO AO ENVIAR';
                             submitBtn.classList.remove('from-purple-600', 'to-pink-600', 'opacity-75', 'cursor-not-allowed');
                             submitBtn.classList.add('from-red-600', 'to-red-500');
                         }
                     } catch (error) {
-                        // Erro de rede
                         submitBtn.textContent = 'ERRO DE CONEXÃO';
                         submitBtn.classList.remove('from-purple-600', 'to-pink-600', 'opacity-75', 'cursor-not-allowed');
                         submitBtn.classList.add('from-red-600', 'to-red-500');
                     }
                     
-                    // Volta ao estado normal após 3 segundos
                     setTimeout(() => {
                         submitBtn.textContent = originalText;
                         submitBtn.classList.remove('from-green-600', 'to-green-500', 'from-red-600', 'to-red-500');
@@ -1497,30 +1130,22 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                     }, 3000);
                 });
             }
-            
-            // Add hover effect to all cards with glassmorphism
-            document.querySelectorAll('.glassmorphism').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.classList.add('neon-glow');
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.classList.remove('neon-glow');
-                });
-            });
+
+            // ==========================================
+            // CHAMA A FUNÇÃO DE LER A PLANILHA (SHEETDB)
+            // ==========================================
+            fetchMatches();
         });
         
-        // Parallax effect on scroll
+        // Scroll events for animations and numbers
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
             const parallaxElements = document.querySelectorAll('.parallax');
-            
             parallaxElements.forEach(element => {
                 const speed = element.getAttribute('data-speed') || 0.5;
                 element.style.transform = `translateY(${scrolled * speed}px)`;
             });
             
-            // Animate stats counters on scroll
             const stats = document.querySelectorAll('.glassmorphism .text-4xl');
             stats.forEach(stat => {
                 const rect = stat.getBoundingClientRect();
@@ -1533,16 +1158,14 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
             });
         });
         
-        // Counter animation function
+        // Animates counters
         function animateCounter(element) {
             const textContent = element.textContent;
-            // Só tenta animar se for um número
             if (!isNaN(parseInt(textContent))) {
                 const target = parseInt(textContent);
                 const duration = 2000;
                 const step = target / (duration / 16);
                 let current = 0;
-                
                 const timer = setInterval(() => {
                     current += step;
                     if (current >= target) {
@@ -1552,6 +1175,102 @@ Acompanhe nossa jornada pelo circuito competitivo de Rocket League.
                         element.textContent = Math.floor(current);
                     }
                 }, 16);
+            }
+        }
+
+        // ==============================================
+        // SHEET DB (COM CORREÇÃO DE HORÁRIOS DO SHEETS)
+        // ==============================================
+
+        // FUNÇÃO QUE ARRUMA OS ERROS DE HORA DO GOOGLE SHEETS
+        function formatarHoraSheets(valorBruto) {
+            if (!valorBruto) return 'TBA';
+            
+            // Troca a vírgula por ponto caso venha '0,625'
+            const valLimpo = String(valorBruto).replace(',', '.');
+            const frac = parseFloat(valLimpo);
+
+            // Se for um número decimal (menor que 1), é uma hora convertida!
+            if (!isNaN(frac) && frac > 0 && frac < 1) {
+                const totalMinutos = Math.round(frac * 24 * 60);
+                let horas = Math.floor(totalMinutos / 60);
+                let minutos = totalMinutos % 60;
+                
+                // Formata para ficar bonito tipo "15:00"
+                return (horas < 10 ? '0' : '') + horas + ':' + (minutos < 10 ? '0' : '') + minutos;
+            }
+            
+            // Se já for um texto normal, só devolve ele
+            return valorBruto;
+        }
+
+        // Função de busca das Partidas
+        async function fetchMatches() {
+            const container = document.getElementById('matches-container');
+            const empty = document.getElementById('empty-matches');
+            
+            if (!container || !empty) return;
+
+            try {
+                const response = await fetch('https://sheetdb.io/api/v1/ou4kk7r7zkoiz');
+                if (!response.ok) throw new Error('Falha na comunicação com a Planilha');
+                
+                const partidas = await response.json();
+                
+                // MODO DEBUG:
+                console.log("DADOS QUE CHEGARAM DA PLANILHA:", partidas);
+                
+                // Filtra ignorando letras maiúsculas/minúsculas ou acentos
+                const validas = partidas && partidas.length > 0 
+                    ? partidas.filter(m => {
+                        const adv = m.adversario || m.Adversario || m.Adversário || m.adversário;
+                        return adv && adv.trim() !== '';
+                    }) : [];
+
+                if (validas.length === 0) {
+                    empty.classList.remove('hidden');
+                    container.innerHTML = '';
+                } else {
+                    empty.classList.add('hidden');
+                    container.innerHTML = '';
+                    
+                    validas.forEach((m) => {
+                        const adv = m.adversario || m.Adversario || m.Adversário || m.adversário || 'TBA';
+                        const dataMatch = m.data || m.Data || 'TBA';
+                        const tipoMatch = m.tipo || m.Tipo || m.Campeonato || m.campeonato || 'Partida';
+                        
+                        // Passando pelo filtro mágico de horas que criamos!
+                        const horarioBruto = m.horario || m.Horario || m.Horário || m.horário;
+                        const horarioMatch = formatarHoraSheets(horarioBruto);
+
+                        const card = document.createElement('div');
+                        card.className = "bg-gray-900 border border-gray-800 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between border-l-4 border-l-cyan-500 hover:bg-gray-800/80 transition-all hover:-translate-y-1 group";
+                        
+                        card.innerHTML = `
+                            <div class="flex flex-col md:flex-row items-center gap-6 mb-4 md:mb-0 w-full md:w-auto text-center md:text-left">
+                                <div>
+                                    <div class="text-cyan-400 font-bold font-heading text-xl">${dataMatch}</div>
+                                    <div class="text-gray-400 text-sm"><i class="fa-regular fa-clock mr-1"></i> ${horarioMatch} BRT</div>
+                                </div>
+                                <div class="h-10 w-px bg-gray-700 hidden md:block"></div>
+                                <div>
+                                    <div class="text-xs text-blue-500 font-bold uppercase tracking-widest mb-1">${tipoMatch}</div>
+                                    <div class="text-2xl font-bold font-heading text-white flex items-center gap-3 justify-center md:justify-start">
+                                        KAZE <span class="text-gray-600 text-base font-normal px-2">VS</span> ${adv}
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://discord.gg/4wqrGh4cje" target="_blank" class="w-full md:w-auto px-6 py-2 bg-gray-800 text-gray-300 border border-gray-700 rounded-full hover:bg-cyan-600 hover:text-white hover:border-cyan-500 transition-colors text-sm font-bold tracking-wider whitespace-nowrap">
+                                <i class="fa-solid fa-bell mr-1"></i> AVISAR
+                            </a>
+                        `;
+                        container.appendChild(card);
+                    });
+                }
+            } catch (error) {
+                console.error("Erro ao carregar partidas da planilha:", error);
+                empty.classList.remove('hidden');
+                container.innerHTML = '';
             }
         }
     </script>
